@@ -1,14 +1,8 @@
 package main
 
-// 使用 go mod 方法导入自定义包时, 需要使用 go mod init 时
-// 输入的项目名称, 这样编译器才能从当前目录寻找对应的包
-import (
-	dl "data_structure/doubleLinkedList"
-)
-
 func main() {
-	l := dl.New()
-	arr := []string{"张三", "李四", "王五", "张麻子", "黄四郎"}
+	//l := dl.New()
+	//arr := []string{"张三", "李四", "王五", "张麻子", "黄四郎"}
 	//for i := 0; i < len(arr); i++ {
 	//	l.Append(arr[i])
 	//}
@@ -24,13 +18,17 @@ func main() {
 	//l.Delete("汤师爷")
 	//l.PrintValue()
 
-	for _, v := range arr {
-		l.Append(v)
-	}
+	//for _, v := range arr {
+	//	l.Append(v)
+	//}
+	////l.PrintForward()
+	//l.InsertBack("汤师爷", "李四")
 	//l.PrintForward()
-	l.InsertBack("汤师爷", "李四")
-	l.PrintForward()
-	l.Delete("John")
-	l.PrintBack()
+	//l.Delete("John")
+	//l.PrintBack()
+
+	//sli := []int{1, 3, 5, 6}
+	//target := 7
+	//fmt.Println(binarySearch.BinarySearch(sli, target))
 
 }
