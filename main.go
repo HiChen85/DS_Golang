@@ -27,7 +27,10 @@ func main() {
 	for _, v := range arr {
 		l.Append(v)
 	}
+	//l.PrintForward()
+	l.InsertBack("汤师爷", "李四")
 	l.PrintForward()
+	l.Delete("John")
 	l.PrintBack()
 
 }

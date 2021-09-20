@@ -79,3 +79,72 @@ func (d *DoubleList) Append(data interface{}) {
 		d.length++
 	}
 }
+
+// 前插法不改变双向链表的尾指针
+func (d *DoubleList) InsertFront(data, at interface{}) {
+	e := new(node)
+	e.data = data
+
+	if d.length == 0 {
+		d.head.next = e
+		d.head.prev = e
+		e.prev = d.head
+		e.next = d.head
+		d.tail = e
+		d.length++
+	} else {
+		for flag := d.head.next; flag != d.head; flag = flag.next {
+			if flag.data == at {
+				flag.prev.next = e
+				e.prev = flag.prev
+				e.next = flag
+				flag.prev = e
+				d.length++
+				return
+			}
+		}
+		fmt.Printf("%v 不在链表中\n", at)
+	}
+}
+
+func (d *DoubleList) InsertBack(data, at interface{}) {
+	e := new(node)
+	e.data = data
+
+	if d.length == 0 {
+		d.head.next = e
+		d.head.prev = e
+		e.prev = d.head
+		e.next = d.head
+		d.tail = e
+		d.length++
+	} else {
+		for flag := d.head.next; flag != d.head; flag = flag.next {
+			if flag.data == at {
+				flag.next.prev = e
+				e.next = flag.next
+				e.prev = flag
+				flag.next = e
+				d.length++
+				return
+			}
+		}
+		fmt.Printf("%v 不在链表中\n", at)
+	}
+}
+
+func (d *DoubleList) Delete(data interface{}) {
+	if d.length == 0 {
+		fmt.Println("链表为空")
+		return
+	} else {
+		for flag := d.head.next; flag != d.head; flag = flag.next {
+			if flag.data == data {
+				flag.prev.next, flag.next.prev = flag.next, flag.prev
+				d.length--
+				return
+			}
+		}
+		fmt.Println("未找到对应数据")
+	}
+}
